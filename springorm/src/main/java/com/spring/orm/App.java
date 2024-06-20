@@ -8,16 +8,18 @@ import com.spring.orm.entites.Student;
 
 public class App 
 {
+	private static ApplicationContext context;
+	
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        System.out.println( "Hello World! 123" );
+        context = new ClassPathXmlApplicationContext("config.xml");
         
         StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
-        Student student = new Student(5, "duggu", "indore");
+        Student student = new Student(1, "duggu", "indore");
         
         int r = studentDao.insert(student);
-        System.out.println(r);
+        System.out.println("done "+r);
         
     }
 }
